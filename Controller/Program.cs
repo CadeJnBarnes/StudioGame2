@@ -11,7 +11,7 @@ using UIKit;
 #endif
 #endregion
 
-namespace StudioGame2
+namespace StudioGame2.Controller
 {
 #if __IOS__ || __TVOS__
     [Register("AppDelegate")]
