@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SampleGame.View;
+using StudioGame2.View;
 
 namespace StudioGame2.Model
 {

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 
-namespace StudioGame2
+namespace StudioGame2.View
 {
 	public class ParallaxingBackground
 	{
