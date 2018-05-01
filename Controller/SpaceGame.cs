@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using StudioGame2.Model;
-
+using YourProjectNameHere.View;
 
 namespace StudioGame2.Controller
 {
@@ -58,9 +58,14 @@ namespace StudioGame2.Controller
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-		Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
+		Animation playerAnimation = new Animation();
+			Texture2D playerTexture = Content.Load<Texture2D>("Animation/shipAnimation");
+			playerAnimation.Initialize(playerTexture, Vector2.Zero, 115, 69, 8, 30, Color.White, 1f, true);
 
-			player.Initialize(Content.Load<Texture2D>("Texture/player"), playerPosition);
+			Vector2 playerPosition = new Vector2(GraphicsDevice.Viewport.TitleSafeArea.X, GraphicsDevice.Viewport.TitleSafeArea.Y + GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
+			player.Initialize(playerAnimation, playerPosition);
+
+
 
 			//TODO: use this.Content to load your game content here 
 		}
@@ -142,6 +147,8 @@ namespace StudioGame2.Controller
 			// Make sure that the player does not go out of bounds
 			player.Position.X = MathHelper.Clamp(player.Position.X, 0, GraphicsDevice.Viewport.Width - player.Width);
 			player.Position.Y = MathHelper.Clamp(player.Position.Y, 0, GraphicsDevice.Viewport.Height - player.Height);
+			player.Update(gameTime);
+
 		}
 
 
